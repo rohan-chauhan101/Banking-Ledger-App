@@ -16,6 +16,13 @@ const [account , setAccount ] = useState([
     }
 ])
 
+//states resonsible for search functionality
+const [searchId , setSearchId ] = useState("");
+const [searchResult , setSearchResult] = useState([])
+console.log(searchId);
+
+
+//state to render add account and view transaction history
 const [display, setDisplay] = useState(true) 
 
 function addAccount(newAccount){
@@ -58,7 +65,16 @@ function addAccount(newAccount){
       }
 
       {
-        display? <AccountList account={account} getId={getId} getIdforDisplay={getIdforDisplay} /> : <AddAccount account = {account} addAccount={addAccount}/>
+        display? <AccountList account={account} 
+        getId={getId} 
+        getIdforDisplay={getIdforDisplay} 
+        searchId = {searchId} 
+        setSearchId={setSearchId}
+        searchResult = {searchResult}
+        setSearchResult = {setSearchResult}
+        /> 
+       
+        : <AddAccount account = {account} addAccount={addAccount}/>
       }
       
 
